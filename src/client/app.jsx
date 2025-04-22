@@ -103,3 +103,14 @@ window.react.renderer = renderer
 window.react.dom = ReactDOM
 
 renderer(store)
+
+// Solicitar permiso para mostrar notificaciones
+Notification.requestPermission().then(permission => {
+  if (permission === 'granted') {
+    // Crear una nueva notificación
+    new Notification('Nuevo ticket creado', {
+      body: 'Se ha creado un nuevo ticket en el sistema.',
+      icon: '/path/to/icon.png'
+    });
+  }
+});
